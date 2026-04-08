@@ -67,12 +67,6 @@
             padding: 20px;
             margin: 20px 0;
             text-align: left;
-            transition: transform 0.3s ease;
-        }
-
-        .highlight-box:hover {
-            transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.08);
         }
 
         .reflexes-list, .pieges-list {
@@ -87,16 +81,23 @@
             position: relative;
         }
 
-        .reflexes-list li::before {
-            content: '🛡️';
-            position: absolute;
-            left: 0;
+        .reflexes-list li::before { content: '🛡️'; position: absolute; left: 0; }
+        .pieges-list li::before { content: '🔍'; position: absolute; left: 0; }
+
+        /* Style du compteur */
+        .counter-section {
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px dashed var(--primary-color);
+            display: inline-block;
+            border-radius: 8px;
+            background: rgba(255, 204, 0, 0.05);
         }
 
-        .pieges-list li::before {
-            content: '🔍';
-            position: absolute;
-            left: 0;
+        #count {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
 
         .footer {
@@ -105,11 +106,7 @@
             opacity: 0.7;
         }
 
-        .warning-icon {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            display: block;
-        }
+        .warning-icon { font-size: 4rem; margin-bottom: 10px; display: block; }
     </style>
 </head>
 <body>
@@ -126,6 +123,10 @@
             <p style="color: var(--accent-red);">Mais si ceci avait été une véritable attaque, un logiciel malveillant pourrait être en train de chiffrer vos données et les exposer publiquement en ce moment même.</p>
         </div>
 
+        <div class="counter-section">
+            DÉJÀ <span id="count">...</span> PERSONNES SENSIBILISÉES PAR CE PIÈGE
+        </div>
+
         <h2>Pourquoi êtes-vous ici ?</h2>
         <div class="highlight-box">
             <p>Vous avez cliqué sur un lien piégé ou scanné un QR code suspect !</p>
@@ -134,32 +135,52 @@
         <h2>3 réflexes pour identifier des menaces</h2>
         <ul class="reflexes-list">
             <li><strong>Vérifiez l'expéditeur :</strong> Connaissez-vous la personne qui vous a écrit ?</li>
-            <li><strong>Analysez le lien :</strong> Placez votre curseur sur le lien, et regardez vers quelle page il vous dirigera (en bas à gauche de votre fenêtre).</li>
-            <li><strong>Doutez de l'urgence :</strong> Un message qui demande une action immédiate est souvent un piège !</li>
+            <li><strong>Analysez le lien :</strong> Placez votre curseur sur le lien pour voir la destination réelle.</li>
+            <li><strong>Doutez de l'urgence :</strong> Un message qui demande une action immédiate est suspect !</li>
         </ul>
 
         <h2>Nos pièges</h2>
-        <p>Nous n'allons pas vous laisser partir sans vous dire ce que nous avons fait !</p>
         <ul class="pieges-list">
-            <li>Le texte était bourré de fautes d'orthographe.</li>
-            <li>Le lien renvoyait vers une page étrange (ne se terminant pas par .fr).</li>
-            <li>Le QR Code de l'affiche était une étiquette collée sur un autre QR Code !</li>
+            <li>Le texte contenait volontairement des fautes d'orthographe.</li>
+            <li>Le lien renvoyait vers une page étrange (hors domaine .fr).</li>
+            <li>Le QR Code était collé par-dessus un autre.</li>
         </ul>
 
         <div class="footer">
-            Campagne de sensibilisation interne à la cybersécurité.
+            Campagne de prévention - DRFiP 67
         </div>
     </div>
 
     <script>
-        // Animation simple à l'entrée
+        // --- CONFIGURATION DU COMPTEUR ---
+        const API_KEY = "VOTRE_CLE_API_ICI"; // <--- REMPLACER PAR VOTRE CLÉ
+        const URL_API = "https://api.counterapi.dev/v2/drfip67missioncommunication-techs-team-3642/first-counter-3642/up";
+
+        async function incrementAndShowCounter() {
+            try {
+                const response = await fetch(URL_API, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${API_KEY}`
+                    }
+                });
+                const data = await response.json();
+                document.getElementById('count').innerText = data.count.value;
+            } catch (error) {
+                console.error('Erreur API:', error);
+                document.getElementById('count').innerText = "Plusieurs";
+            }
+        }
+
+        // --- ANIMATION ET LANCEMENT ---
         document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.highlight-box, li, h2');
+            incrementAndShowCounter();
+
+            const elements = document.querySelectorAll('.highlight-box, li, h2, .counter-section');
             elements.forEach((el, index) => {
                 el.style.opacity = '0';
                 el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 el.style.transform = 'translateY(20px)';
-                
                 setTimeout(() => {
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
@@ -167,15 +188,5 @@
             });
         });
     </script>
-<div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">
-    Nombre de personnes sensibilisées : <span id="count">0</span>
-</div>
-
-<script>
-    function cb(response) {
-        document.getElementById('count').innerText = response.value;
-    }
-</script>
-<script async src="https://api.countapi.xyz/hit/drfip67-cyber-sensi/visits?callback=cb"></script>
 </body>
 </html>
