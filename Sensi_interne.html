@@ -19,10 +19,15 @@
             background-color: var(--dark-bg);
             color: var(--text-light);
             line-height: 1.6;
-            text-align: center;
+            overflow-x: hidden;
         }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
 
         .alert-banner {
             background-color: var(--primary-color);
@@ -32,6 +37,7 @@
             font-size: 1.5rem;
             text-transform: uppercase;
             margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
             border-radius: 4px;
             animation: pulse 2s infinite;
         }
@@ -42,42 +48,123 @@
             100% { transform: scale(1); }
         }
 
-        h2 { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); display: inline-block; margin-top: 40px; }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
 
-        .highlight-box { background: rgba(255, 255, 255, 0.05); border-left: 5px solid var(--primary-color); padding: 20px; margin: 20px 0; text-align: left; }
+        .hero-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
 
-        ul { list-style: none; padding: 0; text-align: left; }
-        li { margin-bottom: 15px; padding-left: 35px; position: relative; }
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
 
-        .warning-icon { font-size: 4rem; display: block; }
+        .highlight-box:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .reflexes-list, .pieges-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .reflexes-list li, .pieges-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .reflexes-list li::before {
+            content: '🛡️';
+            position: absolute;
+            left: 0;
+        }
+
+        .pieges-list li::before {
+            content: '🔍';
+            position: absolute;
+            left: 0;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .warning-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="alert-banner">VOUS AVEZ ÉTÉ VICTIME D'HAMEÇONNAGE !</div>
-
-        <p>Si vous êtes arrivé(e) sur cette page, vous êtes tombé(e) dans notre piège !</p>
-
-        <div class="highlight-box">
-            <p style="color: var(--accent-red); font-weight: bold;">Rassurez-vous, vos données sont en sécurité.</p>
-            <p>Mais si ceci avait été une véritable attaque, vos données seraient en train d'être chiffrées.</p>
+        <div class="alert-banner">
+            VOUS AVEZ ÉTÉ VICTIME D'HAMEÇONNAGE !
         </div>
 
-        <h2>3 réflexes essentiels</h2>
-        <ul>
-            <li><strong>Vérifiez l'expéditeur.</strong></li>
-            <li><strong>Analysez le lien</strong> (survol avec la souris).</li>
-            <li><strong>Doutez de l'urgence.</strong></li>
+        <div class="hero-text">
+            <p>Si vous êtes arrivé(e) sur cette page, ce n'est pas une erreur : <strong>vous êtes tombé(e) dans notre piège !</strong></p>
+            <p>Rassurez-vous, vos données sont en sécurité.</p>
+            <p style="color: var(--accent-red);">Mais si ceci avait été une véritable attaque, un logiciel malveillant pourrait être en train de chiffrer vos données et les exposer publiquement en ce moment même.</p>
+        </div>
+
+        <h2>Pourquoi êtes-vous ici ?</h2>
+        <div class="highlight-box">
+            <p>Vous avez cliqué sur un lien piégé ou scanné un QR code suspect !</p>
+        </div>
+
+        <h2>3 réflexes pour identifier des menaces</h2>
+        <ul class="reflexes-list">
+            <li><strong>Vérifiez l'expéditeur :</strong> Connaissez-vous la personne qui vous a écrit ?</li>
+            <li><strong>Analysez le lien :</strong> Placez votre curseur sur le lien, et regardez vers quelle page il vous dirigera (en bas à gauche de votre fenêtre).</li>
+            <li><strong>Doutez de l'urgence :</strong> Un message qui demande une action immédiate est souvent un piège !</li>
         </ul>
 
-        <h2>Pourquoi avez-vous été piégé ?</h2>
-        <ul>
-            <li>Fautes d'orthographe dans le message.</li>
-            <li>Lien vers un domaine inconnu.</li>
-            <li>QR Code suspect collé sur un support.</li>
+        <h2>Nos pièges</h2>
+        <p>Nous n'allons pas vous laisser partir sans vous dire ce que nous avons fait !</p>
+        <ul class="pieges-list">
+            <li>Le texte était bourré de fautes d'orthographe.</li>
+            <li>Le lien renvoyait vers une page étrange (ne se terminant pas par .fr).</li>
+            <li>Le QR Code de l'affiche était une étiquette collée sur un autre QR Code !</li>
         </ul>
+
+        <div class="footer">
+            Campagne de sensibilisation interne à la cybersécurité.
+        </div>
     </div>
 
+    <script>
+        // Animation simple à l'entrée
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.highlight-box, li, h2');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
 </body>
 </html>
