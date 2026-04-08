@@ -19,15 +19,10 @@
             background-color: var(--dark-bg);
             color: var(--text-light);
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
             text-align: center;
         }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
 
         .alert-banner {
             background-color: var(--primary-color);
@@ -37,7 +32,6 @@
             font-size: 1.5rem;
             text-transform: uppercase;
             margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
             border-radius: 4px;
             animation: pulse 2s infinite;
         }
@@ -48,145 +42,66 @@
             100% { transform: scale(1); }
         }
 
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
+        h2 { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); display: inline-block; margin-top: 40px; }
 
-        .hero-text {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
+        .highlight-box { background: rgba(255, 255, 255, 0.05); border-left: 5px solid var(--primary-color); padding: 20px; margin: 20px 0; text-align: left; }
 
-        .highlight-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 5px solid var(--primary-color);
-            padding: 20px;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .reflexes-list, .pieges-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-
-        .reflexes-list li, .pieges-list li {
-            margin-bottom: 15px;
-            padding-left: 35px;
-            position: relative;
-        }
-
-        .reflexes-list li::before { content: '🛡️'; position: absolute; left: 0; }
-        .pieges-list li::before { content: '🔍'; position: absolute; left: 0; }
-
-        /* Style du compteur */
+        /* Style du nouveau compteur image */
         .counter-section {
-            margin-top: 50px;
-            padding: 20px;
-            border: 1px dashed var(--primary-color);
+            margin: 30px 0;
+            padding: 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            background: #000;
             display: inline-block;
-            border-radius: 8px;
-            background: rgba(255, 204, 0, 0.05);
         }
 
-        #count {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary-color);
+        .counter-section img {
+            height: 40px; /* Ajuste la taille du chiffre ici */
+            vertical-align: middle;
+            filter: drop-shadow(0 0 5px var(--primary-color));
         }
 
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
+        ul { list-style: none; padding: 0; text-align: left; }
+        li { margin-bottom: 15px; padding-left: 35px; position: relative; }
+        li::before { content: '⚠️'; position: absolute; left: 0; }
 
-        .warning-icon { font-size: 4rem; margin-bottom: 10px; display: block; }
+        .warning-icon { font-size: 4rem; display: block; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <span class="warning-icon">⚠️</span>
-        <div class="alert-banner">
-            VOUS AVEZ ÉTÉ VICTIME D'HAMEÇONNAGE !
-        </div>
+        <div class="alert-banner">VOUS AVEZ ÉTÉ VICTIME D'HAMEÇONNAGE !</div>
 
-        <div class="hero-text">
-            <p>Si vous êtes arrivé(e) sur cette page, ce n'est pas une erreur : <strong>vous êtes tombé(e) dans notre piège !</strong></p>
-            <p>Rassurez-vous, vos données sont en sécurité.</p>
-            <p style="color: var(--accent-red);">Mais si ceci avait été une véritable attaque, un logiciel malveillant pourrait être en train de chiffrer vos données et les exposer publiquement en ce moment même.</p>
-        </div>
+        <p>Si vous êtes arrivé(e) sur cette page, vous êtes tombé(e) dans notre piège !</p>
 
         <div class="counter-section">
-            DÉJÀ <span id="count">...</span> PERSONNES SENSIBILISÉES PAR CE PIÈGE
+            DÉJÀ 
+            <img src="https://api.counterapi.dev/v1/drfip67missioncommunication-techs-team-3642/first-counter-3642/up/image" alt="compteur">
+            PERSONNES PIÉGÉES
         </div>
 
-        <h2>Pourquoi êtes-vous ici ?</h2>
         <div class="highlight-box">
-            <p>Vous avez cliqué sur un lien piégé ou scanné un QR code suspect !</p>
+            <p style="color: var(--accent-red); font-weight: bold;">Rassurez-vous, vos données sont en sécurité.</p>
+            <p>Mais si ceci avait été une véritable attaque, vos données seraient en train d'être chiffrées.</p>
         </div>
 
-        <h2>3 réflexes pour identifier des menaces</h2>
-        <ul class="reflexes-list">
-            <li><strong>Vérifiez l'expéditeur :</strong> Connaissez-vous la personne qui vous a écrit ?</li>
-            <li><strong>Analysez le lien :</strong> Placez votre curseur sur le lien pour voir la destination réelle.</li>
-            <li><strong>Doutez de l'urgence :</strong> Un message qui demande une action immédiate est suspect !</li>
+        <h2>3 réflexes essentiels</h2>
+        <ul>
+            <li><strong>Vérifiez l'expéditeur.</strong></li>
+            <li><strong>Analysez le lien</strong> (survol avec la souris).</li>
+            <li><strong>Doutez de l'urgence.</strong></li>
         </ul>
 
-        <h2>Nos pièges</h2>
-        <ul class="pieges-list">
-            <li>Le texte contenait volontairement des fautes d'orthographe.</li>
-            <li>Le lien renvoyait vers une page étrange (hors domaine .fr).</li>
-            <li>Le QR Code était collé par-dessus un autre.</li>
+        <h2>Pourquoi avez-vous été piégé ?</h2>
+        <ul>
+            <li>Fautes d'orthographe dans le message.</li>
+            <li>Lien vers un domaine inconnu.</li>
+            <li>QR Code suspect collé sur un support.</li>
         </ul>
-
-        <div class="footer">
-            Campagne de prévention - DRFiP 67
-        </div>
     </div>
 
-    <script>
-        // --- CONFIGURATION DU COMPTEUR ---
-        const API_KEY = "ut_v1o8WbgruYM9vwTft7At8tn1MopCSsIhrwalfEow"; // <--- REMPLACER PAR VOTRE CLÉ
-        const URL_API = "https://api.counterapi.dev/v2/drfip67missioncommunication-techs-team-3642/first-counter-3642/up";
-
-        async function incrementAndShowCounter() {
-            try {
-                const response = await fetch(URL_API, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${API_KEY}`
-                    }
-                });
-                const data = await response.json();
-                document.getElementById('count').innerText = data.count.value;
-            } catch (error) {
-                console.error('Erreur API:', error);
-                document.getElementById('count').innerText = "Plusieurs";
-            }
-        }
-
-        // --- ANIMATION ET LANCEMENT ---
-        document.addEventListener('DOMContentLoaded', () => {
-            incrementAndShowCounter();
-
-            const elements = document.querySelectorAll('.highlight-box, li, h2, .counter-section');
-            elements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                el.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 100 * index);
-            });
-        });
-    </script>
 </body>
 </html>
