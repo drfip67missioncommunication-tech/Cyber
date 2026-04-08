@@ -167,5 +167,15 @@
             });
         });
     </script>
+<div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">
+    Nombre de personnes sensibilisées : <span id="count">0</span>
+</div>
+
+<script>
+    function cb(response) {
+        document.getElementById('count').innerText = response.value;
+    }
+</script>
+<script async src="https://api.countapi.xyz/hit/drfip67-cyber-sensi/visits?callback=cb"></script>
 </body>
 </html>
