@@ -22,22 +22,17 @@
             text-align: center;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
 
         .alert-banner {
             background-color: var(--primary-color);
             color: #000;
             padding: 20px;
             font-weight: bold;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             text-transform: uppercase;
             margin-bottom: 30px;
             border-radius: 4px;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
             animation: pulse 2s infinite;
         }
 
@@ -47,102 +42,65 @@
             100% { transform: scale(1); }
         }
 
-        .hero-text {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
+        h2 { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); display: inline-block; margin-top: 40px; }
 
-        .highlight-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 5px solid var(--primary-color);
-            padding: 25px;
+        .highlight-box { background: rgba(255, 255, 255, 0.05); border-left: 5px solid var(--primary-color); padding: 20px; margin: 20px 0; text-align: left; }
+
+        /* Style du nouveau compteur image */
+        .counter-section {
             margin: 30px 0;
-            text-align: left;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
+            padding: 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            background: #000;
             display: inline-block;
-            padding-bottom: 5px;
-            margin-top: 40px;
-            text-transform: uppercase;
-            font-size: 1.3rem;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            display: inline-block;
-            max-width: 600px;
+        .counter-section img {
+            height: 40px; /* Ajuste la taille du chiffre ici */
+            vertical-align: middle;
+            filter: drop-shadow(0 0 5px var(--primary-color));
         }
 
-        li {
-            margin-bottom: 15px;
-            padding-left: 40px;
-            position: relative;
-        }
+        ul { list-style: none; padding: 0; text-align: left; }
+        li { margin-bottom: 15px; padding-left: 35px; position: relative; }
+        li::before { content: '⚠️'; position: absolute; left: 0; }
 
-        li::before {
-            content: '⚠️';
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .footer {
-            margin-top: 60px;
-            padding: 20px;
-            font-size: 0.8rem;
-            opacity: 0.5;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .warning-icon {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            display: block;
-        }
+        .warning-icon { font-size: 4rem; display: block; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <span class="warning-icon">⚠️</span>
-        <div class="alert-banner">
-            VOUS AVEZ ÉTÉ VICTIME D'HAMEÇONNAGE !
+        <div class="alert-banner">VOUS AVEZ ÉTÉ VICTIME D'HAMEÇONNAGE !</div>
+
+        <p>Si vous êtes arrivé(e) sur cette page, vous êtes tombé(e) dans notre piège !</p>
+
+        <div class="counter-section">
+            DÉJÀ 
+            <img src="https://api.counterapi.dev/v1/drfip67missioncommunication-techs-team-3642/first-counter-3642/up/image" alt="compteur">
+            PERSONNES PIÉGÉES
         </div>
 
-        <div class="hero-text">
-            <p>Si vous êtes arrivé(e) sur cette page, ce n'est pas une erreur : <strong>vous êtes tombé(e) dans notre piège !</strong></p>
-            
-            <div class="highlight-box">
-                <p style="color: var(--accent-red); font-weight: bold; margin-top: 0;">Rassurez-vous, vos données sont en sécurité.</p>
-                <p style="margin-bottom: 0;">Mais si ceci avait été une véritable attaque, un logiciel malveillant pourrait être en train de chiffrer vos données et les exposer publiquement en ce moment même.</p>
-            </div>
+        <div class="highlight-box">
+            <p style="color: var(--accent-red); font-weight: bold;">Rassurez-vous, vos données sont en sécurité.</p>
+            <p>Mais si ceci avait été une véritable attaque, vos données seraient en train d'être chiffrées.</p>
         </div>
 
-        <h2>Pourquoi êtes-vous ici ?</h2>
-        <p>Vous avez cliqué sur un lien piégé ou scanné un QR code suspect !</p>
-
-        <h2>3 réflexes pour identifier les menaces</h2>
+        <h2>3 réflexes essentiels</h2>
         <ul>
-            <li><strong>Vérifiez l'expéditeur :</strong> L'adresse de l'envoyeur semble-t-elle légitime ?</li>
-            <li><strong>Analysez le lien :</strong> Placez votre curseur sur le lien pour voir la destination réelle avant de cliquer.</li>
-            <li><strong>Doutez de l'urgence :</strong> Un message qui exige une action immédiate est souvent un piège !</li>
+            <li><strong>Vérifiez l'expéditeur.</strong></li>
+            <li><strong>Analysez le lien</strong> (survol avec la souris).</li>
+            <li><strong>Doutez de l'urgence.</strong></li>
         </ul>
 
-        <h2>Nos indices de piège</h2>
+        <h2>Pourquoi avez-vous été piégé ?</h2>
         <ul>
-            <li>Le texte était volontairement bourré de fautes d'orthographe.</li>
-            <li>Le lien renvoyait vers une page étrange (ne se terminant pas par .fr).</li>
-            <li>Le QR Code était une étiquette collée par-dessus un support existant.</li>
+            <li>Fautes d'orthographe dans le message.</li>
+            <li>Lien vers un domaine inconnu.</li>
+            <li>QR Code suspect collé sur un support.</li>
         </ul>
-
-        <div class="footer">
-            Direction Régionale des Finances Publiques — Campagne de sensibilisation interne
-        </div>
     </div>
 
 </body>
